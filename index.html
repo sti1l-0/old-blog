@@ -248,6 +248,13 @@
 
 <div class="carousel carousel-slider center index-cover" data-indicators="true" style="margin-top: -64px;">
     
+        <div id="prev-cover" class="left waves-effect carousel-control">
+            <i class="icon fa fa-angle-left"></i>
+        </div>
+        <div id="next-cover" class="right waves-effect carousel-control">
+            <i class="icon fa fa-angle-right"></i>
+        </div>
+    
 
     <div class="carousel-item red white-text bg-cover about-cover">
         <div class="container">
@@ -307,10 +314,6 @@
                 
             </div>
             <div class="cover-social-link">
-    <a href="https://github.com/sti1l-0" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
-    </a>
-
 
 
     <a href="mailto:1737499156@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
@@ -322,10 +325,6 @@
 
 
 
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1737499156" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1737499156" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
 
 
 
@@ -341,6 +340,87 @@
         </div>
     </div>
 
+    
+        
+
+        
+            
+            <div class="carousel-item amber white-text carousel-post bg-cover"
+                 style="background-image: url('/medias/featureimages/10.jpg');">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s10 offset-s1">
+                            <div class="title center-align">Hexo图片宽度调整</div>
+                            <div class="description center-align">
+                                
+                                    Hexo图片宽度调整Hexo在解析md文件里的图片内容时，只将图片的url或地址直白地转换为html语法中的img标签，而没有对图片宽度做限制。当上传图片大小大于Hexo模板的文本容器宽度时，会使得图片超出容器外，破坏网页美观。
+简单试验后
+                                
+                            </div>
+                            <div class="cover-btns">
+                                <a href="/2021/08/10/hexo-img/" class="waves-effect waves-light btn"
+                                   target="_blank">
+                                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="carousel-item amber white-text carousel-post bg-cover"
+                 style="background-image: url('/medias/featureimages/7.jpg');">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s10 offset-s1">
+                            <div class="title center-align">实训第二天笔记</div>
+                            <div class="description center-align">
+                                
+                                    获取数据库数据1. 寻找注入点利用引号、括号等构造闭合，判断是否存在注入点。也可能没有保护，不需要构造闭合。
+
+可以用#和–+来构造注释
+
+2. 判断是否存在注入在闭合后的语句中插入1=1，查看该位置语句是否被运算
+3. 判断当前表有多少列
+                                
+                            </div>
+                            <div class="cover-btns">
+                                <a href="/2021/08/10/sql-inject/" class="waves-effect waves-light btn"
+                                   target="_blank">
+                                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="carousel-item amber white-text carousel-post bg-cover"
+                 style="background-image: url('/medias/featureimages/11.jpg');">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s10 offset-s1">
+                            <div class="title center-align">实训第十天wp</div>
+                            <div class="description center-align">
+                                
+                                    whatweb查询网页cms
+修改返回的js，绕过前端验证上传头像
+抓包得到头像上传url上传url为：http://116.62.203.33:84/index.php?ctl=avatar&amp;act=upload&amp;uid=
+                                
+                            </div>
+                            <div class="cover-btns">
+                                <a href="/2021/08/10/shi-xi-di-shi-tian/" class="waves-effect waves-light btn"
+                                   target="_blank">
+                                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
     
 </div>
 
@@ -380,7 +460,7 @@
         let autoCarousel = function () {
             carouselIntervalId = setInterval(function () {
                 coverSlider.carousel('next');
-            }, 3000);
+            }, 2000);
         };
         autoCarousel();
         
