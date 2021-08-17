@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hexo图片宽度调整, sti1l&#39;s blog">
+    <meta name="keywords" content="1000t, sti1l&#39;s blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hexo图片宽度调整 | sti1l&#39;s blog</title>
+    <title>1000t | sti1l&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -206,12 +206,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hexo图片宽度调整</h1>
+                    <h1 class="description center-align post-title">1000t</h1>
                 </div>
             </div>
         </div>
@@ -327,12 +327,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/hexo/">
-                                <span class="chip bg-color">hexo</span>
-                            </a>
-                        
-                            <a href="/tags/javascript/">
-                                <span class="chip bg-color">javascript</span>
+                            <a href="/tags/%E9%AB%98%E6%95%B0/">
+                                <span class="chip bg-color">高数</span>
                             </a>
                         
                     </div>
@@ -347,7 +343,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-08-10
+                    2021-08-13
                 </div>
                 
 
@@ -356,7 +352,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    600
+                    222
                 </div>
                 
 
@@ -376,40 +372,52 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Hexo图片宽度调整"><a href="#Hexo图片宽度调整" class="headerlink" title="Hexo图片宽度调整"></a>Hexo图片宽度调整</h1><p>Hexo在解析md文件里的图片内容时，只将图片的url或地址直白地转换为html语法中的img标签，而没有对图片宽度做限制。当上传图片大小大于Hexo模板的文本容器宽度时，会使得图片超出容器外，破坏网页美观。</p>
-<p>简单试验后发现，在生成的html文件内，对图片img标签加入style=”max-width: “属性可以限制图片宽度。于是尝试修改Hexo模板引擎。</p>
+                <h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><h2 id="A组"><a href="#A组" class="headerlink" title="A组"></a>A组</h2><blockquote>
+<p>  4 D</p>
 <blockquote>
-<p>  模板引擎的作用，就是将界面与数据分离。最简单的原理是将模板内容中指定的地方替换成数据，实现业务代码与逻辑代码分离。数据的填充主要是 hexo -g 的时候将数据(.md文件)传递给 ejs 模板，然后再由 ejs 模板填充到 HTML 中。</p>
+<p>  讨论极限时刻牢记x<del>0</del>的左右两边相等</p>
 </blockquote>
-<p>因此可以有以下几种方法修改图片的大小：</p>
-<ol>
-<li>  修改ejs模板中对img标签的处理，将图像的宽度限制记录在html中。</li>
-<li>  修改主题对应的js / css，由浏览器渲染调整图像大小。</li>
-</ol>
-<h2 id="尝试在js和css中添加宽度限制"><a href="#尝试在js和css中添加宽度限制" class="headerlink" title="尝试在js和css中添加宽度限制"></a>尝试在js和css中添加宽度限制</h2><ol>
-<li><p>  使用jQurey为图像添加类和样式–&gt;失败</p>
-</li>
-<li><p>在matery主题中，作者使用了js文件对文章内容做初始化。修改响应js代码。因此可以借助jQuery设置元素的相关属性。</p>
-  <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#articleContent img'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">each</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> imgPath <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">'src'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">wrap</span><span class="token punctuation">(</span><span class="token string">'&lt;div class="img-item" data-src="'</span> <span class="token operator">+</span> imgPath <span class="token operator">+</span> <span class="token string">'" data-sub-html=".caption"&gt;&lt;/div&gt;'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//图片限制大小</span>
-    <span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">'max-width'</span><span class="token punctuation">,</span><span class="token string">'98%'</span><span class="token punctuation">)</span>
-    <span class="token comment">// 图片添加阴影</span>
-    <span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addClass</span><span class="token punctuation">(</span><span class="token string">"img-shadow img-margin img-width"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>  代码的第5行为图片添加了不大于上层容器宽度98%的限制，采用max-width可以让原本低分辨率的图像保持正常大小显示。此外应该还有很多方式可以限制图片宽度，这里只使用了其中一种。</p>
+<p>  16</p>
 <blockquote>
-<p>  这里只测试了markdown使用url引入图片的方式，理论上对于本地引入同样适用。</p>
+<p>  可以通分的先通分</p>
 </blockquote>
-<p>  修改前的图片：</p>
-<p>  <img src="https://i.loli.net/2021/08/10/7mhqFckUOWK1ISN.png" alt="image-20210810183120037"></p>
-<p>  修改后的图片：</p>
-<p>  <img src="https://i.loli.net/2021/08/10/x26kzltmI35McK1.png" alt="image-20210810182924802"></p>
-</li>
-</ol>
-<h2 id="修改ejs模板"><a href="#修改ejs模板" class="headerlink" title="修改ejs模板"></a>修改ejs模板</h2><p>我用的这款主题不是用ejs模板，而是使用js的方式添加图片的。也可能我对ejs的作用理解有误吧。总之这里就先摆烂不写了。</p>
-<p><a target="_blank" rel="noopener" href="https://littlezero.top/20190831what-is-Hexo/">梳理基于Hexo搭建博客的原理 | 小贪心 (littlezero.top)</a></p>
+</blockquote>
+<h2 id="B组"><a href="#B组" class="headerlink" title="B组"></a>B组</h2><blockquote>
+<p>  4</p>
+<blockquote>
+<p>  利用除法来判断函数的阶数</p>
+<p>  遇到无法求导的式子，可以在分式的另一边求导（洛必达）</p>
+</blockquote>
+<p>  13</p>
+<blockquote>
+<p>  利用三角恒等变换，凑形式</p>
+</blockquote>
+<p>  15</p>
+<blockquote>
+<p>  3</p>
+<p>  10</p>
+<p>  12</p>
+<blockquote>
+<p>  幂指函数变形后的ln，除了可以用洛必达消去，还可以构造等价无穷小</p>
+<p>  熟记泰勒展开，灵活运用极限。有的时候可以直接计算极限取值</p>
+</blockquote>
+<p>  13</p>
+<blockquote>
+<p>  遇到三角函数，直接泰勒展开也可以做</p>
+</blockquote>
+<p>  15</p>
+<blockquote>
+<p>  常数减去无穷小量，可以优先计算，得到一个常数</p>
+</blockquote>
+<p>  16</p>
+<blockquote>
+<p>  如果对数前后出现加减法，考虑将加减的项化为ln( e^I^ )形式，再利用对数运算法则化简</p>
+</blockquote>
+</blockquote>
+<p>  24</p>
+</blockquote>
+<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><h2 id="a组"><a href="#a组" class="headerlink" title="a组"></a>a组</h2><blockquote>
+</blockquote>
 
                 
             </div>
@@ -436,7 +444,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://blog.sti1l.top/2021/08/10/hexo-img/">http://blog.sti1l.top/2021/08/10/hexo-img/</a>
+                    <a href="http://blog.sti1l.top/2021/08/13/1000t/">http://blog.sti1l.top/2021/08/13/1000t/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -474,12 +482,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/hexo/">
-                                    <span class="chip bg-color">hexo</span>
-                                </a>
-                            
-                                <a href="/tags/javascript/">
-                                    <span class="chip bg-color">javascript</span>
+                                <a href="/tags/%E9%AB%98%E6%95%B0/">
+                                    <span class="chip bg-color">高数</span>
                                 </a>
                             
                         </div>
@@ -651,9 +655,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/08/13/1000t/">
                     <div class="card-image">
@@ -671,9 +676,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -682,6 +687,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -700,13 +706,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/08/10/file-include/">
+                <a href="/2021/08/10/hexo-img/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="实训第三天文件包含">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Hexo图片宽度调整">
                         
-                        <span class="card-title">实训第三天文件包含</span>
+                        <span class="card-title">Hexo图片宽度调整</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -730,16 +736,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%9B%9B%E5%8F%B6%E8%8D%89%E5%AE%9E%E8%AE%AD/">
-                        <span class="chip bg-color">四叶草实训</span>
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
                     </a>
                     
-                    <a href="/tags/%E6%B8%97%E9%80%8F/">
-                        <span class="chip bg-color">渗透</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/">
-                        <span class="chip bg-color">文件包含</span>
+                    <a href="/tags/javascript/">
+                        <span class="chip bg-color">javascript</span>
                     </a>
                     
                 </div>
