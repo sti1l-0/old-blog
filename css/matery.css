@@ -94,10 +94,10 @@ hr {
 }
 
 blockquote {
-    border-left: 5px solid #42b983;
+    border-left: 5px solid #585858;
     padding: 1rem 0.8rem 0.2rem 0.8rem;
-    color: #666;
-    background-color: rgba(0,0,0,0.5);
+    color: rgb(68, 68, 68);
+    background-color: rgba(0, 0, 0, 0.048);
 }
 
 pre {
@@ -242,6 +242,11 @@ mark {
 
 .bg-color {
     background-image: linear-gradient(to right,rgb(39, 39, 39) 0%,rgb(53, 53, 53) 100%);
+    opacity: 0.8;
+}
+
+.tag-color {
+    background-image: linear-gradient(to right,rgb(204, 204, 204) 0%,rgb(211, 211, 211) 100%);
     opacity: 0.8;
 }
 

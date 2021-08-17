@@ -6,7 +6,7 @@
   <link href="http://blog.sti1l.top/atom.xml" rel="self"/>
   
   <link href="http://blog.sti1l.top/"/>
-  <updated>2021-08-17T08:35:43.685Z</updated>
+  <updated>2021-08-17T08:57:17.333Z</updated>
   <id>http://blog.sti1l.top/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="http://blog.sti1l.top/2021/08/13/1000t/"/>
     <id>http://blog.sti1l.top/2021/08/13/1000t/</id>
     <published>2021-08-13T09:11:15.000Z</published>
-    <updated>2021-08-17T08:35:43.685Z</updated>
+    <updated>2021-08-17T08:57:17.333Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;第一章&quot;&gt;&lt;a href=&quot;#第一章&quot; class=&quot;headerlink&quot; title=&quot;第一章&quot;&gt;&lt;/a&gt;第一章&lt;/h1&gt;&lt;h2 id=&quot;A组&quot;&gt;&lt;a href=&quot;#A组&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;第一章&quot;&gt;&lt;a href=&quot;#第一章&quot; class=&quot;headerlink&quot; title=&quot;第一章&quot;&gt;&lt;/a&gt;第一章&lt;/h2&gt;&lt;h3 id=&quot;A组&quot;&gt;&lt;a href=&quot;#A组&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -65,6 +65,32 @@
   </entry>
   
   <entry>
+    <title>一些curl参数</title>
+    <link href="http://blog.sti1l.top/2021/08/10/curl-shou-ce/"/>
+    <id>http://blog.sti1l.top/2021/08/10/curl-shou-ce/</id>
+    <published>2021-08-10T07:36:35.000Z</published>
+    <updated>2021-08-10T07:52:25.244Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;i&quot;&gt;&lt;a href=&quot;#i&quot; class=&quot;headerlink&quot; title=&quot;-i&quot;&gt;&lt;/a&gt;-i&lt;/h2&gt;&lt;p&gt;显示响应头和html&lt;/p&gt;
+&lt;h2 id=&quot;I&quot;&gt;&lt;a href=&quot;#I&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="linux" scheme="http://blog.sti1l.top/tags/linux/"/>
+    
+    <category term="curl" scheme="http://blog.sti1l.top/tags/curl/"/>
+    
+  </entry>
+  
+  <entry>
     <title>实训第三天文件包含</title>
     <link href="http://blog.sti1l.top/2021/08/10/file-include/"/>
     <id>http://blog.sti1l.top/2021/08/10/file-include/</id>
@@ -89,32 +115,6 @@
     <category term="渗透" scheme="http://blog.sti1l.top/tags/%E6%B8%97%E9%80%8F/"/>
     
     <category term="文件包含" scheme="http://blog.sti1l.top/tags/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一些curl参数</title>
-    <link href="http://blog.sti1l.top/2021/08/10/curl-shou-ce/"/>
-    <id>http://blog.sti1l.top/2021/08/10/curl-shou-ce/</id>
-    <published>2021-08-10T07:36:35.000Z</published>
-    <updated>2021-08-10T07:52:25.244Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;i&quot;&gt;&lt;a href=&quot;#i&quot; class=&quot;headerlink&quot; title=&quot;-i&quot;&gt;&lt;/a&gt;-i&lt;/h2&gt;&lt;p&gt;显示响应头和html&lt;/p&gt;
-&lt;h2 id=&quot;I&quot;&gt;&lt;a href=&quot;#I&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="linux" scheme="http://blog.sti1l.top/tags/linux/"/>
-    
-    <category term="curl" scheme="http://blog.sti1l.top/tags/curl/"/>
     
   </entry>
   
@@ -171,11 +171,62 @@ ip=$(ifconfig</summary>
   </entry>
   
   <entry>
+    <title>lua语法记录</title>
+    <link href="http://blog.sti1l.top/2021/08/10/lua/"/>
+    <id>http://blog.sti1l.top/2021/08/10/lua/</id>
+    <published>2021-08-10T07:36:35.000Z</published>
+    <updated>2021-08-10T07:51:14.420Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;引入包&quot;&gt;&lt;a href=&quot;#引入包&quot; class=&quot;headerlink&quot; title=&quot;引入包&quot;&gt;&lt;/a&gt;引入包&lt;/h2&gt;&lt;pre class=&quot;line-numbers language-lua&quot; data-language=&quot;lua&quot;&gt;&lt;code</summary>
+        
+      
+    
+    
+    
+    
+    <category term="lua" scheme="http://blog.sti1l.top/tags/lua/"/>
+    
+    <category term="verynginx" scheme="http://blog.sti1l.top/tags/verynginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记一次kali网卡修复</title>
+    <link href="http://blog.sti1l.top/2021/08/10/kali-eth/"/>
+    <id>http://blog.sti1l.top/2021/08/10/kali-eth/</id>
+    <published>2021-08-10T07:36:35.000Z</published>
+    <updated>2021-08-10T07:52:01.745Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;查看网卡信息&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-shell&quot; data-language=&quot;shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;ifconfig -a&lt;span</summary>
+        
+      
+    
+    
+    
+    
+    <category term="shell" scheme="http://blog.sti1l.top/tags/shell/"/>
+    
+    <category term="kali" scheme="http://blog.sti1l.top/tags/kali/"/>
+    
+  </entry>
+  
+  <entry>
     <title>win/unix等环境下代理的设置</title>
     <link href="http://blog.sti1l.top/2021/08/10/proxy/"/>
     <id>http://blog.sti1l.top/2021/08/10/proxy/</id>
     <published>2021-08-10T07:36:35.000Z</published>
-    <updated>2021-08-10T07:53:00.071Z</updated>
+    <updated>2021-08-10T14:52:39.313Z</updated>
     
     
       
@@ -215,32 +266,6 @@ ip=$(ifconfig</summary>
     
     
     <category term="shell" scheme="http://blog.sti1l.top/tags/shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>记一次kali网卡修复</title>
-    <link href="http://blog.sti1l.top/2021/08/10/kali-eth/"/>
-    <id>http://blog.sti1l.top/2021/08/10/kali-eth/</id>
-    <published>2021-08-10T07:36:35.000Z</published>
-    <updated>2021-08-10T07:52:01.745Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;查看网卡信息&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-shell&quot; data-language=&quot;shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;ifconfig -a&lt;span</summary>
-        
-      
-    
-    
-    
-    
-    <category term="shell" scheme="http://blog.sti1l.top/tags/shell/"/>
-    
-    <category term="kali" scheme="http://blog.sti1l.top/tags/kali/"/>
     
   </entry>
   
@@ -291,31 +316,6 @@ ip=$(ifconfig</summary>
     <category term="渗透" scheme="http://blog.sti1l.top/tags/%E6%B8%97%E9%80%8F/"/>
     
     <category term="sql注入" scheme="http://blog.sti1l.top/tags/sql%E6%B3%A8%E5%85%A5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>lua语法记录</title>
-    <link href="http://blog.sti1l.top/2021/08/10/lua/"/>
-    <id>http://blog.sti1l.top/2021/08/10/lua/</id>
-    <published>2021-08-10T07:36:35.000Z</published>
-    <updated>2021-08-10T07:51:14.420Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;引入包&quot;&gt;&lt;a href=&quot;#引入包&quot; class=&quot;headerlink&quot; title=&quot;引入包&quot;&gt;&lt;/a&gt;引入包&lt;/h2&gt;&lt;pre class=&quot;line-numbers language-lua&quot; data-language=&quot;lua&quot;&gt;&lt;code</summary>
-        
-      
-    
-    
-    
-    
-    <category term="lua" scheme="http://blog.sti1l.top/tags/lua/"/>
-    
-    <category term="verynginx" scheme="http://blog.sti1l.top/tags/verynginx/"/>
     
   </entry>
   
