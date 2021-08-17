@@ -380,7 +380,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="php"><a href="#php" class="headerlink" title="php"></a>php</h1><p>文件包含，只包含一次</p>
+                <h1>php</h1>
+<p>文件包含，只包含一次</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">include_once</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>可以反复包含</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">include</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -388,16 +389,18 @@
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token function">fopen</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>读取到缓冲区、返回整数为文件长度</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token function">readfile</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h1 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h1><p>函数不经过过滤，动态包含文件，存在文件包含漏洞</p>
-<h1 id="本地文件包含-LFI-local-file-include"><a href="#本地文件包含-LFI-local-file-include" class="headerlink" title="本地文件包含(LFI,local file include)"></a>本地文件包含(LFI,local file include)</h1><ul>
+<h1>文件包含</h1>
+<p>函数不经过过滤，动态包含文件，存在文件包含漏洞</p>
+<h1>本地文件包含(LFI,local file include)</h1>
+<ul>
 <li>被包含文件需要在同一目录下</li>
 <li>若不在同一目录，需要用相对或绝对路径</li>
 <li>被包含页面后缀无论是什么，都会被当作php解析</li>
 <li>include和require的区别：包含的文件不存在时，都会爆出绝对路径，但include后的命令会继续执行，require后的命令会停止执行。</li>
 <li>对于后缀名限制，在php5.5一下版本可以使用%00截断字符</li>
 </ul>
-<h1 id="远程文件包含-RFI"><a href="#远程文件包含-RFI" class="headerlink" title="远程文件包含(RFI)"></a>远程文件包含(RFI)</h1><p>属于代码注入</p>
+<h1>远程文件包含(RFI)</h1>
+<p>属于代码注入</p>
 <p>当phpinfo中的url_fopen或url_include为on状态时，可以使用这两个函数来包含远程文件。</p>
 
                 

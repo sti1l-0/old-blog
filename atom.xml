@@ -28,7 +28,10 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;第一章&quot;&gt;&lt;a href=&quot;#第一章&quot; class=&quot;headerlink&quot; title=&quot;第一章&quot;&gt;&lt;/a&gt;第一章&lt;/h2&gt;&lt;h3 id=&quot;A组&quot;&gt;&lt;a href=&quot;#A组&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;第一章&quot;&gt;第一章&lt;/h2&gt;
+&lt;h3 id=&quot;A组&quot;&gt;A组&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;4</summary>
         
       
     
@@ -51,7 +54,9 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;Hexo图片宽度调整&quot;&gt;&lt;a href=&quot;#Hexo图片宽度调整&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1&gt;Hexo图片宽度调整&lt;/h1&gt;
+&lt;p&gt;Hexo在解析md文件里的图片内容时，只将图片的url或地址直白地转换为html语法中的img标签，而没有对图片宽度做限制。当上传图片大小大于Hexo模板的文本容器宽度时，会使得图片超出容器外，破坏网页美观。&lt;/p&gt;
+&lt;p&gt;简单试验后</summary>
         
       
     
@@ -76,8 +81,13 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;i&quot;&gt;&lt;a href=&quot;#i&quot; class=&quot;headerlink&quot; title=&quot;-i&quot;&gt;&lt;/a&gt;-i&lt;/h2&gt;&lt;p&gt;显示响应头和html&lt;/p&gt;
-&lt;h2 id=&quot;I&quot;&gt;&lt;a href=&quot;#I&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;i&quot;&gt;-i&lt;/h2&gt;
+&lt;p&gt;显示响应头和html&lt;/p&gt;
+&lt;h2 id=&quot;I&quot;&gt;-I&lt;/h2&gt;
+&lt;p&gt;只显示响应头&lt;/p&gt;
+&lt;h2 id=&quot;v&quot;&gt;-v&lt;/h2&gt;
+&lt;p&gt;显示端口连接过程和请求头&lt;/p&gt;
+&lt;h2 id=&quot;–trace-v&quot;&gt;–trace /</summary>
         
       
     
@@ -102,8 +112,9 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;php&quot;&gt;&lt;a href=&quot;#php&quot; class=&quot;headerlink&quot; title=&quot;php&quot;&gt;&lt;/a&gt;php&lt;/h1&gt;&lt;p&gt;文件包含，只包含一次&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-php&quot;</summary>
+    <summary type="html">&lt;h1&gt;php&lt;/h1&gt;
+&lt;p&gt;文件包含，只包含一次&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-php&quot; data-language=&quot;php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token</summary>
         
       
     
@@ -130,7 +141,13 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;直接上传&quot;&gt;&lt;a href=&quot;#直接上传&quot; class=&quot;headerlink&quot; title=&quot;直接上传&quot;&gt;&lt;/a&gt;直接上传&lt;/h1&gt;&lt;h1 id=&quot;前端绕过&quot;&gt;&lt;a href=&quot;#前端绕过&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1&gt;直接上传&lt;/h1&gt;
+&lt;h1&gt;前端绕过&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;禁用js，使前端验证失效&lt;/li&gt;
+&lt;li&gt;通过修改正常的请求或者重发，直接和后端交互，绕过前端&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;后端content</summary>
         
       
     
@@ -140,6 +157,58 @@
     <category term="四叶草实训" scheme="http://blog.sti1l.top/tags/%E5%9B%9B%E5%8F%B6%E8%8D%89%E5%AE%9E%E8%AE%AD/"/>
     
     <category term="渗透" scheme="http://blog.sti1l.top/tags/%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记一次kali网卡修复</title>
+    <link href="http://blog.sti1l.top/2021/08/10/kali-eth/"/>
+    <id>http://blog.sti1l.top/2021/08/10/kali-eth/</id>
+    <published>2021-08-10T07:36:35.000Z</published>
+    <updated>2021-08-10T07:52:01.745Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;查看网卡信息&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-shell&quot; data-language=&quot;shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;ifconfig -a&lt;span</summary>
+        
+      
+    
+    
+    
+    
+    <category term="shell" scheme="http://blog.sti1l.top/tags/shell/"/>
+    
+    <category term="kali" scheme="http://blog.sti1l.top/tags/kali/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>win/unix等环境下代理的设置</title>
+    <link href="http://blog.sti1l.top/2021/08/10/proxy/"/>
+    <id>http://blog.sti1l.top/2021/08/10/proxy/</id>
+    <published>2021-08-10T07:36:35.000Z</published>
+    <updated>2021-08-10T14:52:39.313Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;powershell proxy&lt;/h1&gt;
+&lt;pre class=&quot;line-numbers language-shell&quot; data-language=&quot;shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;set</summary>
+        
+      
+    
+    
+    
+    
+    <category term="shell" scheme="http://blog.sti1l.top/tags/shell/"/>
+    
+    <category term="代理" scheme="http://blog.sti1l.top/tags/%E4%BB%A3%E7%90%86/"/>
     
   </entry>
   
@@ -182,7 +251,8 @@ ip=$(ifconfig</summary>
       
         
         
-    <summary type="html">&lt;h2 id=&quot;引入包&quot;&gt;&lt;a href=&quot;#引入包&quot; class=&quot;headerlink&quot; title=&quot;引入包&quot;&gt;&lt;/a&gt;引入包&lt;/h2&gt;&lt;pre class=&quot;line-numbers language-lua&quot; data-language=&quot;lua&quot;&gt;&lt;code</summary>
+    <summary type="html">&lt;h2 id=&quot;引入包&quot;&gt;引入包&lt;/h2&gt;
+&lt;pre class=&quot;line-numbers language-lua&quot; data-language=&quot;lua&quot;&gt;&lt;code class=&quot;language-lua&quot;&gt;json &lt;span class=&quot;token</summary>
         
       
     
@@ -192,57 +262,6 @@ ip=$(ifconfig</summary>
     <category term="lua" scheme="http://blog.sti1l.top/tags/lua/"/>
     
     <category term="verynginx" scheme="http://blog.sti1l.top/tags/verynginx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>记一次kali网卡修复</title>
-    <link href="http://blog.sti1l.top/2021/08/10/kali-eth/"/>
-    <id>http://blog.sti1l.top/2021/08/10/kali-eth/</id>
-    <published>2021-08-10T07:36:35.000Z</published>
-    <updated>2021-08-10T07:52:01.745Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;查看网卡信息&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-shell&quot; data-language=&quot;shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;ifconfig -a&lt;span</summary>
-        
-      
-    
-    
-    
-    
-    <category term="shell" scheme="http://blog.sti1l.top/tags/shell/"/>
-    
-    <category term="kali" scheme="http://blog.sti1l.top/tags/kali/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>win/unix等环境下代理的设置</title>
-    <link href="http://blog.sti1l.top/2021/08/10/proxy/"/>
-    <id>http://blog.sti1l.top/2021/08/10/proxy/</id>
-    <published>2021-08-10T07:36:35.000Z</published>
-    <updated>2021-08-10T14:52:39.313Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;powershell-proxy&quot;&gt;&lt;a href=&quot;#powershell-proxy&quot; class=&quot;headerlink&quot; title=&quot;powershell proxy&quot;&gt;&lt;/a&gt;powershell proxy&lt;/h1&gt;&lt;pre</summary>
-        
-      
-    
-    
-    
-    
-    <category term="shell" scheme="http://blog.sti1l.top/tags/shell/"/>
-    
-    <category term="代理" scheme="http://blog.sti1l.top/tags/%E4%BB%A3%E7%90%86/"/>
     
   </entry>
   
@@ -258,7 +277,9 @@ ip=$(ifconfig</summary>
       
         
         
-    <summary type="html">&lt;h1 id=&quot;python&quot;&gt;&lt;a href=&quot;#python&quot; class=&quot;headerlink&quot; title=&quot;python&quot;&gt;&lt;/a&gt;python&lt;/h1&gt;&lt;h3 id=&quot;清华源&quot;&gt;&lt;a href=&quot;#清华源&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1&gt;python&lt;/h1&gt;
+&lt;h3 id=&quot;清华源&quot;&gt;清华源&lt;/h3&gt;
+&lt;pre class=&quot;line-numbers language-shell&quot; data-language=&quot;shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;pip</summary>
         
       
     
@@ -266,29 +287,6 @@ ip=$(ifconfig</summary>
     
     
     <category term="shell" scheme="http://blog.sti1l.top/tags/shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>佳作赏析</title>
-    <link href="http://blog.sti1l.top/2021/08/10/yuan-tou/"/>
-    <id>http://blog.sti1l.top/2021/08/10/yuan-tou/</id>
-    <published>2021-08-10T07:36:35.000Z</published>
-    <updated>2021-08-10T07:51:50.126Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;windows文件系统&quot;&gt;&lt;a href=&quot;#windows文件系统&quot; class=&quot;headerlink&quot; title=&quot;windows文件系统&quot;&gt;&lt;/a&gt;windows文件系统&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    
-    <category term="原偷" scheme="http://blog.sti1l.top/tags/%E5%8E%9F%E5%81%B7/"/>
     
   </entry>
   
@@ -304,7 +302,13 @@ ip=$(ifconfig</summary>
       
         
         
-    <summary type="html">&lt;h1 id=&quot;获取数据库数据&quot;&gt;&lt;a href=&quot;#获取数据库数据&quot; class=&quot;headerlink&quot; title=&quot;获取数据库数据&quot;&gt;&lt;/a&gt;获取数据库数据&lt;/h1&gt;&lt;h2 id=&quot;1-寻找注入点&quot;&gt;&lt;a href=&quot;#1-寻找注入点&quot;</summary>
+    <summary type="html">&lt;h1&gt;获取数据库数据&lt;/h1&gt;
+&lt;h2 id=&quot;1-寻找注入点&quot;&gt;1. 寻找注入点&lt;/h2&gt;
+&lt;p&gt;利用引号、括号等构造闭合，判断是否存在注入点。也可能没有保护，不需要构造闭合。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可以用#和–+来构造注释&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2</summary>
         
       
     
@@ -320,6 +324,30 @@ ip=$(ifconfig</summary>
   </entry>
   
   <entry>
+    <title>佳作赏析</title>
+    <link href="http://blog.sti1l.top/2021/08/10/yuan-tou/"/>
+    <id>http://blog.sti1l.top/2021/08/10/yuan-tou/</id>
+    <published>2021-08-10T07:36:35.000Z</published>
+    <updated>2021-08-10T07:51:50.126Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;windows文件系统&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.walterlv.com/post/ntfs-link-comparisons.html&quot;&gt;比较 Windows 上四种不同的文件（夹）链接方式（NTFS</summary>
+        
+      
+    
+    
+    
+    
+    <category term="原偷" scheme="http://blog.sti1l.top/tags/%E5%8E%9F%E5%81%B7/"/>
+    
+  </entry>
+  
+  <entry>
     <title>实训第十天wp</title>
     <link href="http://blog.sti1l.top/2021/08/10/shi-xi-di-shi-tian/"/>
     <id>http://blog.sti1l.top/2021/08/10/shi-xi-di-shi-tian/</id>
@@ -331,7 +359,8 @@ ip=$(ifconfig</summary>
       
         
         
-    <summary type="html">&lt;h1 id=&quot;whatweb查询网页cms&quot;&gt;&lt;a href=&quot;#whatweb查询网页cms&quot; class=&quot;headerlink&quot; title=&quot;whatweb查询网页cms&quot;&gt;&lt;/a&gt;whatweb查询网页cms&lt;/h1&gt;&lt;p&gt;&lt;img</summary>
+    <summary type="html">&lt;h1&gt;whatweb查询网页cms&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2021/08/10/IBFVeW6JKkgRTG4.png&quot;</summary>
         
       
     

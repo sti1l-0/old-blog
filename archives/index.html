@@ -295,25 +295,33 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    第一章A组
-  4 D
+                                    第一章
+A组
 
-  讨论极限时刻牢记x0的左右两边相等
+4 D
 
-  16
+讨论极限时刻牢记x0的左右两边相等
 
-  可以通分的先通分
+16
+
+可以通分的先通分
 
 
 B组
-  4
 
-  利用除法来判断函数的阶数
-  遇到无法求导的式子，可以在分式的另一边求导（洛必达）
+4
 
-  13
+利用除法来判断函数的阶数
+遇到无法求导的式子，可以在分式的另一边求导（洛必达）
 
-  利用三角恒等
+13
+
+利用三角恒等变换，凑形式
+
+15
+
+3
+1
                                 
                             </div>
                             <div class="publish-info">
@@ -368,8 +376,9 @@ B组
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    Hexo图片宽度调整Hexo在解析md文件里的图片内容时，只将图片的url或地址直白地转换为html语法中的img标签，而没有对图片宽度做限制。当上传图片大小大于Hexo模板的文本容器宽度时，会使得图片超出容器外，破坏网页美观。
-简单试验后
+                                    Hexo图片宽度调整
+Hexo在解析md文件里的图片内容时，只将图片的url或地址直白地转换为html语法中的img标签，而没有对图片宽度做限制。当上传图片大小大于Hexo模板的文本容器宽度时，会使得图片超出容器外，破坏网页美观。
+简单试验
                                 
                             </div>
                             <div class="publish-info">
@@ -426,12 +435,17 @@ B组
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    -i显示响应头和html
--I只显示响应头
--v显示端口连接过程和请求头
-–trace / -v更加详细，可以调试
--X / -x指定发送方法，如post
-curl -X POST --data "data=xxx" example.com
+                                    -i
+显示响应头和html
+-I
+只显示响应头
+-v
+显示端口连接过程和请求头
+–trace / -v
+更加详细，可以调试
+-X / -x
+指定发送方法，如post
+curl -X POST --data "data=xxx" exampl
                                 
                             </div>
                             <div class="publish-info">
@@ -488,7 +502,8 @@ curl -X POST --data "data=xxx" example.com
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    php文件包含，只包含一次
+                                    php
+文件包含，只包含一次
 include_once(file)
 可以反复包含
 include(file)
@@ -496,8 +511,8 @@ include(file)
 fopen(file)
 读取到缓冲区、返回整数为文件长度
 readfile(file)
-
-文件包含函数不经过过滤，动态
+文件包含
+函数不经过过滤，动
                                 
                             </div>
                             <div class="publish-info">
@@ -556,16 +571,20 @@ readfile(file)
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    直接上传前端绕过
+                                    直接上传
+前端绕过
+
 禁用js，使前端验证失效
 通过修改正常的请求或者重发，直接和后端交互，绕过前端
 
 后端content type校验
+
 通过修改Content type绕过后端对文件类型的验证
 抓包修改后缀名
 
 后端黑名单校验
-修改php5、
+
+修改p
                                 
                             </div>
                             <div class="publish-info">
@@ -587,6 +606,129 @@ readfile(file)
                             <a href="/tags/%E5%9B%9B%E5%8F%B6%E8%8D%89%E5%AE%9E%E8%AE%AD/"><span class="chip tag-color">四叶草实训</span></a>
                             
                             <a href="/tags/%E6%B8%97%E9%80%8F/"><span class="chip tag-color">渗透</span></a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+
+            
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>10</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
+                        <a href="/2021/08/10/kali-eth/">
+                            <div class="card-image">
+                                
+                                
+                                <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="记一次kali网卡修复">
+                                
+                                <span class="card-title">记一次kali网卡修复</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                    查看网卡信息
+ifconfig -a
+修改/etc/network/interfaces
+加入
+auto eth0
+iface eth0 inet dhcp
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="far fa-clock fa-fw icon-date"></i>2021-08-10
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fas fa-user fa-fw"></i>
+                                    sti1l
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
+                            
+                            <a href="/tags/shell/"><span class="chip tag-color">shell</span></a>
+                            
+                            <a href="/tags/kali/"><span class="chip tag-color">kali</span></a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+
+            
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>10</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
+                        <a href="/2021/08/10/proxy/">
+                            <div class="card-image">
+                                
+                                
+                                <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="win/unix等环境下代理的设置">
+                                
+                                <span class="card-title">win/unix等环境下代理的设置</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                    powershell proxy
+set http_proxy=socks5://127.0.0.1:8848
+set https_proxy=socks5://127.0.0.1:8848
+linux
+export http_proxy=
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="far fa-clock fa-fw icon-date"></i>2021-08-10
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fas fa-user fa-fw"></i>
+                                    sti1l
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
+                            
+                            <a href="/tags/shell/"><span class="chip tag-color">shell</span></a>
+                            
+                            <a href="/tags/%E4%BB%A3%E7%90%86/"><span class="chip tag-color">代理</span></a>
                             
                         </div>
                         
@@ -682,9 +824,10 @@ bark='https://api.day.app/Jmu8WBAj
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    引入包json = require "json"
-
-可用的json实例{"config_version":"0.36","uri_rewrite_rule":[],"summary_request_enable":true,"dashboa
+                                    引入包
+json = require "json"
+可用的json实例
+{"config_version":"0.36","uri_rewrite_rule":[],"summary_request_enable":true,"dashbo
                                 
                             </div>
                             <div class="publish-info">
@@ -729,128 +872,6 @@ bark='https://api.day.app/Jmu8WBAj
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2021/08/10/kali-eth/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="记一次kali网卡修复">
-                                
-                                <span class="card-title">记一次kali网卡修复</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    查看网卡信息
-ifconfig -a
-
-修改/etc/network/interfaces加入
-auto eth0
-iface eth0 inet dhcp
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="far fa-clock fa-fw icon-date"></i>2021-08-10
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fas fa-user fa-fw"></i>
-                                    sti1l
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/shell/"><span class="chip tag-color">shell</span></a>
-                            
-                            <a href="/tags/kali/"><span class="chip tag-color">kali</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
-        
-        <div class="cd-timeline-block">
-
-            
-            
-
-            
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>10</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/2021/08/10/proxy/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="win/unix等环境下代理的设置">
-                                
-                                <span class="card-title">win/unix等环境下代理的设置</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    powershell proxyset http_proxy=socks5://127.0.0.1:8848
-set https_proxy=socks5://127.0.0.1:8848
-
-linuxexport http_proxy=s
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="far fa-clock fa-fw icon-date"></i>2021-08-10
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fas fa-user fa-fw"></i>
-                                    sti1l
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/shell/"><span class="chip tag-color">shell</span></a>
-                            
-                            <a href="/tags/%E4%BB%A3%E7%90%86/"><span class="chip tag-color">代理</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
-        
-        <div class="cd-timeline-block">
-
-            
-            
-
-            
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>10</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
                         <a href="/2021/08/10/set-source/">
                             <div class="card-image">
                                 
@@ -863,8 +884,11 @@ linuxexport http_proxy=s
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    python清华源pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-阿里源pip config set global.index-url htt
+                                    python
+清华源
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+阿里源
+pip config set global.index-url 
                                 
                             </div>
                             <div class="publish-info">
