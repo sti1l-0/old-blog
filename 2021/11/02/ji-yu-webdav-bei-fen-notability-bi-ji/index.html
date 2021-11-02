@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="路由开机脚本配置, sti1l&#39;s blog">
+    <meta name="keywords" content="借助webdav备份notability笔记, sti1l&#39;s blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>路由开机脚本配置 | sti1l&#39;s blog</title>
+    <title>借助webdav备份notability笔记 | sti1l&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -206,12 +206,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">路由开机脚本配置</h1>
+                    <h1 class="description center-align post-title">借助webdav备份notability笔记</h1>
                 </div>
             </div>
         </div>
@@ -327,12 +327,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/linux/">
-                                <span class="chip tag-color">linux</span>
+                            <a href="/tags/docker/">
+                                <span class="chip tag-color">docker</span>
                             </a>
                         
-                            <a href="/tags/shell/">
-                                <span class="chip tag-color">shell</span>
+                            <a href="/tags/webdav/">
+                                <span class="chip tag-color">webdav</span>
                             </a>
                         
                     </div>
@@ -347,7 +347,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-08-10
+                    2021-11-02
                 </div>
                 
 
@@ -356,7 +356,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    48
+                    854
                 </div>
                 
 
@@ -376,16 +376,29 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>##R7000 boot script</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># ip
-ip=$(ifconfig -a|grep 10.170|awk '{print $2}'|tr -d "addr:")
-bark='https://api.day.app/Jmu8WBAjx7CDtKpidsQnzW/'
-group='?group=ip'
-curl $bark$ip$group
-# aria2
-/koolshare/aria2/aria2c --conf-path=/koolshare/aria2/aria2.conf -D
-# frp
-/koolshare/bin/frpc_linux_arm_garbage -f 2n6flw9stmhzj451:1061057,1061049<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h2 id="起因">起因</h2>
+<p>notability出了贴纸功能以后太花哨了，相比之下goodnotes就更简单一点，就计划逐步把笔记迁移到goodnotes上。现在notability直接搞了这么一出背刺老用户，于是决定直接不用了。把以前做的笔记备份迁移出来，完全投入goodnotes了。</p>
+<h2 id="借助docker搭建webdav">借助docker搭建webdav</h2>
+<p>notability里自带了比较完善的备份功能，支持onedrive、webdav等多种服务，这点比goodnotes要好得多，也是这篇文章的基础。可惜的是notability支持的网盘中我比较常用的只有onedrive，国内访问不太稳定。于是另寻他法，直接在电脑上搭建一个webdav服务器，在局域网内传输可以大大节约备份的时间和流量。而且文件都保存在本地，方便查看或者再导入goodnotes。</p>
+<p>在windows上开启webdav的方式还挺多的，但是对于我这样的懒人来说还是想尽量避免自己配置环境了。在docker hub里搜了一下，果然已经有人做好了。而且作者本人还写过一篇博客介绍了镜像的用法，下面贴上作者本人的博客地址和docker hub地址：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.devzeng.com/blog/build-webdav-server-in-docker.html">在Docker上搭建WebDAV文件共享服务 (devzeng.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://hub.docker.com/r/morrisjobke/webdav">Docker Hub</a></p>
+<p>既然已经有现成的轮子，那我们直接拿来用就好了。因为我以前已经安装过docker了，因此直接启动终端复制粘贴作者的命令：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker run -d -v E:\webdav_docker:/var/webdav -e USERNAME=test -e PASSWORD=test -p 8888:80 morrisjobke/webdav<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>需要注意的是，命令中的“E:\webdav_docker”需要修改为你希望保存的文件目录，用户名和密码倒是可以直接用test。命令输入以后敲个回车，打开浏览器查看地址，输入用户名和密码均为test就能看到我们的webdav服务器正在运行了。（我这里有文件呢是因为我已经备份过了）</p>
+<p><img src="https://i.loli.net/2021/11/02/r7axRNClTMQZtKY.png" alt="image-20211102124001562"></p>
+<p><img src="https://i.loli.net/2021/11/02/Asa6qz8GnYru9HD.png" alt="image-20211102124045175"></p>
+<h2 id="notability上的设置">notability上的设置</h2>
+<p>webdav服务器搭建好了，我们需要到notability上把备份功能打开。将notability和电脑连接到同一个WiFi下，在电脑设置中记好电脑的ip地址，比如我的就是192.168.1.102。</p>
+<p><img src="https://i.loli.net/2021/11/02/sKUJnbiVmvEPafO.png" alt="image-20211102125419504"></p>
+<p>接着到notability的设置中，在自动备份标签页选择webdav服务并输入服务器的地址（也就是电脑的ip地址）、webdav服务的账号和密码（都是test）。像我的电脑ip是192.168.1.102，在第一行就输入192.168.1.102:8888/webdav。</p>
+<p><img src="https://i.loli.net/2021/11/02/jilbh1kZRFTxAP2.png" alt="IMG_0642"></p>
+<p>输入后可以选择要备份哪些笔记、备份的位置和格式。关闭设置后就可以看到右小角正在备份的小圆圈了。备份结束后一定要记住对比文件夹内的文件数量和notability中的笔记数量是否对的上，这个地方可能会出现数量对不上的情况。如果有问题的话把电脑上的文件夹删掉重新开关notability的备份服务就可以了~</p>
+<p><img src="https://i.loli.net/2021/11/02/1lngAyrYchSQOHe.jpg" alt="IMG_0643(20211102-125635)"></p>
+<p>我这里分文件夹同时备份了原生笔记格式和pdf格式，只要关掉原来的备份服务后换个路径和格式在备份一次就行了。</p>
+<p><img src="https://i.loli.net/2021/11/02/xKRyvYE31sWgMtV.png" alt="image-20211102124929171"></p>
+<h2 id="最后">最后</h2>
+<p>之前买了mac端notability，mac版上的下架了；买了iOS端notability，ios改订阅制了…只能说受伤太深，把以前的笔记弄出来转投goodnotes了。</p>
 
                 
             </div>
@@ -412,7 +425,7 @@ curl $bark$ip$group
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://blog.sti1l.top/2021/08/10/ip/">http://blog.sti1l.top/2021/08/10/ip/</a>
+                    <a href="http://blog.sti1l.top/2021/11/02/ji-yu-webdav-bei-fen-notability-bi-ji/">http://blog.sti1l.top/2021/11/02/ji-yu-webdav-bei-fen-notability-bi-ji/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -450,12 +463,12 @@ curl $bark$ip$group
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/linux/">
-                                    <span class="chip tag-color">linux</span>
+                                <a href="/tags/docker/">
+                                    <span class="chip tag-color">docker</span>
                                 </a>
                             
-                                <a href="/tags/shell/">
-                                    <span class="chip tag-color">shell</span>
+                                <a href="/tags/webdav/">
+                                    <span class="chip tag-color">webdav</span>
                                 </a>
                             
                         </div>
@@ -627,17 +640,18 @@ curl $bark$ip$group
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/08/10/proxy/">
+                <a href="/2021/11/02/ji-yu-webdav-bei-fen-notability-bi-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="win/unix等环境下代理的设置">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="借助webdav备份notability笔记">
                         
-                        <span class="card-title">win/unix等环境下代理的设置</span>
+                        <span class="card-title">借助webdav备份notability笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -647,9 +661,9 @@ curl $bark$ip$group
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-02
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -658,15 +672,16 @@ curl $bark$ip$group
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/shell/">
-                        <span class="chip tag-color">shell</span>
+                    <a href="/tags/docker/">
+                        <span class="chip tag-color">docker</span>
                     </a>
                     
-                    <a href="/tags/%E4%BB%A3%E7%90%86/">
-                        <span class="chip tag-color">代理</span>
+                    <a href="/tags/webdav/">
+                        <span class="chip tag-color">webdav</span>
                     </a>
                     
                 </div>
@@ -680,13 +695,13 @@ curl $bark$ip$group
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/08/10/lua/">
+                <a href="/2021/08/13/1000t/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="lua语法记录">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="1000t">
                         
-                        <span class="card-title">lua语法记录</span>
+                        <span class="card-title">1000t</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -697,7 +712,7 @@ curl $bark$ip$group
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-13
                             </span>
                         <span class="publish-author">
                             
@@ -710,12 +725,8 @@ curl $bark$ip$group
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/lua/">
-                        <span class="chip tag-color">lua</span>
-                    </a>
-                    
-                    <a href="/tags/verynginx/">
-                        <span class="chip tag-color">verynginx</span>
+                    <a href="/tags/%E9%AB%98%E6%95%B0/">
+                        <span class="chip tag-color">高数</span>
                     </a>
                     
                 </div>

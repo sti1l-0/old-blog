@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>借助webdav备份notability笔记</title>
+      <link href="/2021/11/02/ji-yu-webdav-bei-fen-notability-bi-ji/"/>
+      <url>/2021/11/02/ji-yu-webdav-bei-fen-notability-bi-ji/</url>
+      
+        <content type="html"><![CDATA[<h2 id="起因">起因</h2><p>notability出了贴纸功能以后太花哨了，相比之下goodnotes就更简单一点，就计划逐步把笔记迁移到goodnotes上。现在notability直接搞了这么一出背刺老用户，于是决定直接不用了。把以前做的笔记备份迁移出来，完全投入goodnotes了。</p><h2 id="借助docker搭建webdav">借助docker搭建webdav</h2><p>notability里自带了比较完善的备份功能，支持onedrive、webdav等多种服务，这点比goodnotes要好得多，也是这篇文章的基础。可惜的是notability支持的网盘中我比较常用的只有onedrive，国内访问不太稳定。于是另寻他法，直接在电脑上搭建一个webdav服务器，在局域网内传输可以大大节约备份的时间和流量。而且文件都保存在本地，方便查看或者再导入goodnotes。</p><p>在windows上开启webdav的方式还挺多的，但是对于我这样的懒人来说还是想尽量避免自己配置环境了。在docker hub里搜了一下，果然已经有人做好了。而且作者本人还写过一篇博客介绍了镜像的用法，下面贴上作者本人的博客地址和docker hub地址：</p><p><a href="https://blog.devzeng.com/blog/build-webdav-server-in-docker.html">在Docker上搭建WebDAV文件共享服务 (devzeng.com)</a></p><p><a href="https://hub.docker.com/r/morrisjobke/webdav">Docker Hub</a></p><p>既然已经有现成的轮子，那我们直接拿来用就好了。因为我以前已经安装过docker了，因此直接启动终端复制粘贴作者的命令：</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker run -d -v E:\webdav_docker:/var/webdav -e USERNAME=test -e PASSWORD=test -p 8888:80 morrisjobke/webdav<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>需要注意的是，命令中的“E:\webdav_docker”需要修改为你希望保存的文件目录，用户名和密码倒是可以直接用test。命令输入以后敲个回车，打开浏览器查看地址，输入用户名和密码均为test就能看到我们的webdav服务器正在运行了。（我这里有文件呢是因为我已经备份过了）</p><p><img src="https://i.loli.net/2021/11/02/r7axRNClTMQZtKY.png" alt="image-20211102124001562"></p><p><img src="https://i.loli.net/2021/11/02/Asa6qz8GnYru9HD.png" alt="image-20211102124045175"></p><h2 id="notability上的设置">notability上的设置</h2><p>webdav服务器搭建好了，我们需要到notability上把备份功能打开。将notability和电脑连接到同一个WiFi下，在电脑设置中记好电脑的ip地址，比如我的就是192.168.1.102。</p><p><img src="https://i.loli.net/2021/11/02/sKUJnbiVmvEPafO.png" alt="image-20211102125419504"></p><p>接着到notability的设置中，在自动备份标签页选择webdav服务并输入服务器的地址（也就是电脑的ip地址）、webdav服务的账号和密码（都是test）。像我的电脑ip是192.168.1.102，在第一行就输入192.168.1.102:8888/webdav。</p><p><img src="https://i.loli.net/2021/11/02/jilbh1kZRFTxAP2.png" alt="IMG_0642"></p><p>输入后可以选择要备份哪些笔记、备份的位置和格式。关闭设置后就可以看到右小角正在备份的小圆圈了。备份结束后一定要记住对比文件夹内的文件数量和notability中的笔记数量是否对的上，这个地方可能会出现数量对不上的情况。如果有问题的话把电脑上的文件夹删掉重新开关notability的备份服务就可以了~</p><p><img src="https://i.loli.net/2021/11/02/1lngAyrYchSQOHe.jpg" alt="IMG_0643(20211102-125635)"></p><p>我这里分文件夹同时备份了原生笔记格式和pdf格式，只要关掉原来的备份服务后换个路径和格式在备份一次就行了。</p><p><img src="https://i.loli.net/2021/11/02/xKRyvYE31sWgMtV.png" alt="image-20211102124929171"></p><h2 id="最后">最后</h2><p>之前买了mac端notability，mac版上的下架了；买了iOS端notability，ios改订阅制了…只能说受伤太深，把以前的笔记弄出来转投goodnotes了。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+            <tag> webdav </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>1000t</title>
       <link href="/2021/08/13/1000t/"/>
       <url>/2021/08/13/1000t/</url>
